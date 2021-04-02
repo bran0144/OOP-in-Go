@@ -1,8 +1,8 @@
 package main
 
 import (
+	"OOP/gopherpay/payment/procedural"
 	"fmt"
-	"gopherpay/payment/procedural"
 	"strings"
 )
 
