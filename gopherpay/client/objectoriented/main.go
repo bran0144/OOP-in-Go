@@ -36,16 +36,8 @@ func main() {
 	fmt.Printf("Initial balance: $%.2f\n", checking.Balance())
 	checking.ProcessPayment(amount)
 	fmt.Printf("Balance now: $%.2f\n", checking.Balance())
-	fmt.Printf(strings.Repeat("*", 10) + "\n\n")
 
-	fmt.Println("Hmm not enough in account. We can fix that")
-	fmt.Println("Changing account balance")
-	checking.Balance = 5000
-
-	fmt.Println("Paying with check")
-	fmt.Printf("Initial balance: $%.2f\n", checking.Balance())
-	checking.ProcessPayment(amount)
-	fmt.Printf("Balance now: $%.2f\n", checking.Balance())
+	fmt.Println("Hmm not enough in account.")
 	fmt.Printf(strings.Repeat("*", 10) + "\n\n")
 
 }
