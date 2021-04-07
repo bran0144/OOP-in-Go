@@ -4,10 +4,6 @@ import (
 	"fmt"
 )
 
-type PaymentOption interface {
-	ProcessPayment(float32) bool
-}
-
 type CreditCard struct{}
 
 func (c *CreditCard) ProcessPayment(amount float32) bool {
