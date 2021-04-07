@@ -4,24 +4,29 @@ import (
 	"fmt"
 )
 
-type Account struct{}
+type CreditAccount struct{}
 
-func (a *Account) AvailableFunds() float32 {
-	fmt.Println("listing available funds")
-	return 0
+func (c *CreditAccount) AvailableFunds() float32 {
+	fmt.Println("Getting credit funds")
+	return 250
 }
 
-func (a *Account) ProcessPayment(amount float32) bool {
-	fmt.Println("Processing payment")
-	return true
+type CheckingAccount struct{}
+
+func (c *CheckingAccount) AvailableFunds() float32 {
+	fmt.Println("Getting checking funds")
+	return 125
 }
 
-type CreditAccount struct {
-	Account
+type HybridAccount struct {
+	CreditAccount
+	CheckingAccount
 }
 
+func (h *HybridAccount) AvailableFunds() float32 {
+	return h.CreditAccount.AvailableFunds() + h.CheckingAccount.AvailableFunds()
+}
 func main() {
-	ca := &CreditAccount{}
-	ca.AvailableFunds()
-	ca.ProcessPayment(500)
+	ha := &HybridAccount{}
+	fmt.Println(ha.AvailableFunds())
 }
